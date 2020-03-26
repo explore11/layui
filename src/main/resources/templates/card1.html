@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="layui/css/layui.css">
+</head>
+
+<script src="/layui/layui.js"></script>
+<script type="application/javascript">
+    layui.use(["element","jquery"], function () {
+        var $ = layui.jquery;
+        var element = layui.element;
+
+        $("#tabAdd").click(function () {
+            element.tabAdd('demo',{
+                title: '选项卡的标题'
+                ,content: '选项卡的内容' //支持传入html
+                ,id: '选项卡标题的lay-id属性值'
+            })
+        });
+        $("#tabDelete").click(function () {
+            element.tabDelete('demo','33');
+        });
+        $("#tabUser").click(function () {
+            element.tabChange('demo','22');
+        });
+        $("#toPower").click(function () {
+            element.tabChange('demo','66');
+        });
+
+
+    })
+</script>
+<body>
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
+    <legend>动态操作Tab</legend>
+</fieldset>
+<div class="layui-tab" lay-filter="demo" lay-allowclose="true">
+    <ul class="layui-tab-title">
+        <li class="layui-this" lay-id="11">网站设置</li>
+        <li lay-id="22">用户管理</li>
+        <li lay-id="33">权限分配</li>
+        <li lay-id="44">商品管理</li>
+        <li lay-id="55">订单管理</li>
+        <li lay-id="66">权限分配</li>
+    </ul>
+    <div class="layui-tab-content">
+        <div class="layui-tab-item layui-show">内容1</div>
+        <div class="layui-tab-item">内容2</div>
+        <div class="layui-tab-item">内容3</div>
+        <div class="layui-tab-item">内容4</div>
+        <div class="layui-tab-item">内容5</div>
+    </div>
+</div>
+<div class="site-demo-button" style="margin-bottom: 0;">
+    <button class="layui-btn site-demo-active" data-type="tabAdd" id="tabAdd">新增Tab项</button>
+    <button class="layui-btn site-demo-active" data-type="tabDelete" id="tabDelete">删除：商品管理</button>
+    <button class="layui-btn site-demo-active" data-type="tabChange" id="tabUser">切换到：用户管理</button>
+    <button class="layui-btn site-demo-active" data-type="tabChange" id="toPower">切换到：权限分配</button>
+</div>
+
+
+</body>
+</html>
