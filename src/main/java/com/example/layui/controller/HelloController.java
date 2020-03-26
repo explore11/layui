@@ -16,6 +16,13 @@ public class HelloController {
     public String getMenu(){
 //        return "menu";
 //        return "card";
-        return "card1";
+//        return "card1";
+//        return "faceCard";
+//        return "flag";
+//        return "line";
+//        return "action";
+//        return "color";
+//        return "carousel";
+        return "date";
     }
 }
