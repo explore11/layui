@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/layui/css/layui.css">
+
+
+</head>
+<script src="/layui/layui.js"></script>
+<script type="application/javascript">
+    layui.use(["form", "jquery", "layer", "table"], function () {
+        var $ = layui.jquery;
+        var table = layui.table;
+
+
+        table.render({
+            elem: '#UserTable'
+            , url: '/layui/json/user.json'
+            , toolbar: '#toolbarDemo' //开启头部工具栏，并为其绑定左侧模板
+            , defaultToolbar: ['filter', 'exports', 'print', { //自定义头部工具栏右侧图标。如无需自定义，去除该参数即可
+                title: '提示'
+                , layEvent: 'LAYTABLE_TIPS'
+                , icon: 'layui-icon-tips'
+            }]
+            , title: '用户数据表'
+            , cols: [[
+                 {field: 'id', title: 'ID', width: 80, fixed: 'left'}
+                , {field: 'username', title: '用户名', width: 120, edit: 'text'}
+                , {field: 'email', title: '邮箱', width: 150, edit: 'text'}
+                , {field: 'sex', title: '性别', width: 80}
+                , {field: 'city', title: '城市', width: 100}
+                , {field: 'sign', title: '签名'}
+                , {field: 'experience', title: '积分', width:     80, sort: true}
+                , {field: 'ip', title: 'IP', width: 120}
+                , {field: 'logins', title: '登入次数', width: 100, sort: true}
+                , {field: 'joinTime', title: '加入时间', width: 120}
+            ]]
+        });
+
+    })
+</script>
+<body>
+<table class="layui-hide" id="UserTable" lay-filter="UserTable"></table>
+
+</body>
+</html>
